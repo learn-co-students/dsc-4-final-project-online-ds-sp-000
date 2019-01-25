@@ -1,25 +1,73 @@
 
-# Module X Final Project
+# Module 4 Final Project
 
 
 ## Introduction
 
-In this lesson, we'll review all of the guidelines and specifications for the final project for Module X. 
+In this lesson, we'll review all of the guidelines and specifications for the final project for Module 4. 
 
 ## Objectives
 You will be able to:
-* Describe all required aspects of the final project for Module X
+* Describe all required aspects of the final project for Module 4
 * Describe all required deliverables
 * Describe what constitutes a successful project
 * Describe what the experience of the project review should be like
 
 ## Final Project Summary
 
-You've made it all the way through another  module of this course - congratulations!
+You've made it all the way through one of the toughest modules of this course, and demonstrated a solid understanding of the principles of Deep Learning. You must have an amazing brain in your head!
 
+<img src='brain.gif' height=40% width=40%>
+
+For this module's final project, you'll put everything you've learned together to build a Deep Neural Network that trains on a large dataset for classification on a non-trivial task! This project will include:
+
+* Selecting a problem 
+* Sourcing an appropriate dataset
+* Setting up your project (directory structure, etc)
+* Building, training, tuning, and evaluating a Deep Neural Network
+* Explaining your methodology and findings in a clear, concise manner
+
+Let's get started by examining the dataset requirements for this project.
 
 ## The Dataset
 
+For this module's project, the dataset will be heavily tied to the problem you are trying to solve. We recommend that you base your project around one of the three following subdomains in Deep Learning which you how have experience with:
+
+* Traditional  analytics (classification or regression tasks)
+* Computer Vision
+* Text Classification/NLP
+
+### Picking a Reasonable Problem
+
+Note that in respect to this project, all datasets and problems are not created equal--while you could likely build a working model for just about any dataset you find in theory, in practice, you'll find that many datasets have dimensionality issues that make them intractable for training without spending hundreds or even thousands of dollars training your model on a professional server cluster filled with high-end GPUs. 
+
+A good litmus test for checking a project's feasibility is to head over to Kaggle or do a quick Google search to see if anyone else has already solved this problem. If they have, then it's likely that you can, too! Just remember, you only have access to a local machine for this project, not a server cluster, so the problem should be one that can be solved on your own laptop!
+
+Here are some caveats you should consider when selecting your dataset:
+
+#### A Note on Computer Vision Datasets
+
+**Try to stay away from color images, or images that are larger than 40x40 pixels**. Convolutional Layers are very expensive, and most models can still make successful classifications on grainy, black-and-white images just fine. Pictures that are too large add a bunch of needless dimensionality to the model--remember, every single pixel in the model is a dimension! Similarly, since color images are Rank-3 Tensors (3-dimensional arrays contain Red, Green, and Blue values for each pixel), they also needlessly triple dimensionality without adding important information to your model in most cases.
+
+#### Aim for a Proof of Concept
+
+With Deep Learning, data is king--the more of it, the better. However, the goal of this project isn't to build the best model possible--it's to demonstrate your understanding by building a model that works. The true goal of this project is to gain experience with Deep Learning and to build a portfolio project you can be proud of, and that doesn't necessarily require a model with incredibly high accuracy.  You should try to avoid datasets and model architectures that won't run in reasonable time on your own machine. For many problems, this means downsampling your dataset and only training on a portion of it. Once you're absolutely sure that you've found the best possible architecture and other hyperparameters for your model, then consider training your model on your entire dataset overnight (or, as larger portion of the dataset that will still run in a feasible amount of time). 
+
+At the end of the day, we want to see your thought process as you iterate and improve on a model. A Project that achieves a lower level of accuracy but has clearly iterated on the model and the problem until it found the best possible approach is more impressive than a model with high accuracy that did not iteration. We're not just interested in seeing you finish a model--we want to see that you understand them, and can use this knowledge to try and make them better and better!
+
+
+#### Preexisting Datasets
+
+As you start exploring datasets that are appropriate for Deep Learning, you'll probably start to see some of the same datasets mentioned again and again, such as CIFAR10. For this project, it is acceptable to use popular preexisting datasets. **It is also acceptable to use datasets that you've found on popular websites such as Kaggle--you'll find a very active Deep Learning community on that website, and plenty of awesome datasets that are perfect for this sort of project!**
+
+#### Sourcing Your Own Dataset
+
+ If you so choose, you are also welcome to source your own dataset for this project, although we strongly advise you to think carefully about whether this is worth the time before attempting this! You'll likely need thousands of examples, and scraping google images or other websites can sometimes be more trouble than it's worth. If you feel up to the task, then you are more than welcome to source your own dataset through scraping. However, we strongly encourage you to search the web for preexisting datasets that would work for your chosen task before attempting to source your own, as they likely already exist, and will save you a ton of time debugging your scraping code or getting an API to work. **If you plan on sourcing your own dataset for this project, please clear this with your instuctor first!**
+ 
+ 
+ #### Avoid Generative Models
+ 
+ After the end of the Deep Learning module, you may be tempted to try building a Generative Model such as a Generative Adversarial Network, Variation Autoencoder, or Sequence Generation model. Although you theoretically know enough to attempt such problems, in practice, these models are much too computationally intensive for you to see any meaningful results on a local machine in the time allotted. For reference, most GANs for image generation need to train for a minimum of 3 days straight on a server cluster with 64 high-end GPUs before showing any meaningful results! The other issue with generative models is that they are unsupervised, so it is impossible to generate any sort of accuracy or performance metrics.  **For this reason, you must stick to supervised learning and only build discriminative models for this project. No generative models will be approved.**
 
 ## The Deliverables
 
@@ -80,15 +128,20 @@ This section outlines the rubric we'll use to evaluate your project.
 
 ### 1. Technical Report Must-Haves
 
+Your jupyter notebook should include all code written for this project. This includes any code for sourcing, cleaning, and preprocessing data.  Your technical report should also contain a record of the various different hyperparameters you tried during the tuning process, and the results each achieved. Any data scientist given your technical report should be able to reproduce every step you took during the project from start to finish and achieve the same results, so don't forget to set a random seed for reproducibility!
+
+As always, your jupyter notebook should be well-organized and easy to read, with clean, well-commented code as necessary.
 
 
 ### 2. Non-Technical Presentation Must-Haves
 
+Just as with the other projects, you should also complete a 5-10 slide PowerPoint or Google Slides presentation that explains your problem, methodology, and results to non-technical stakeholders. This can be especially hard with Deep Learning--try not to get bogged down with technical jargon! Your slide deck should take ~5 minutes to go through, and should contain graphics and avoid long blocks of text or code when possible. 
 
+**_HINT_**: Keras provides [excellent documentation](https://keras.io/visualization/) on how to create a visualization of your neural network's architecture!
 
 ### 3. Blog Post
 
-Please also write a blog post about one element of the project - it could be the EDA, the feature selection, the choice of visualizations or anything else technical relating to the project. It should be between 800-1500 words and should be targeted at your peers - aspiring data scientists.
+Please also write a blog post about your experience working on this project. This blog post should provide insight into the problem you are trying to solve and your dataset, any preprocessing steps required, and your approach to building and iteratively tuning your model. It should also contain an explanation of any problems, obstacles, or surprises you encountered during this project. The blog post should be between 800-1500 words and should be targeted at your peers - aspiring data scientists.
 
 
 ## Summary
