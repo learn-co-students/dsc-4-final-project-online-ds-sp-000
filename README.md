@@ -17,7 +17,7 @@ You will be able to:
 
 You've made it all the way through one of the toughest modules of this course, and demonstrated a solid understanding of the principles of Deep Learning. You must have an amazing brain in your head!
 
-<img src='brain.gif' height=40% width=40%>
+<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-4-final-project/master/brain.gif' height=40% width=40%>
 
 For this module's final project, you'll put everything you've learned together to build a Deep Neural Network that trains on a large dataset for classification on a non-trivial task! This project will include:
 
