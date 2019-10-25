@@ -34,5 +34,27 @@ Step 9 makes it easier to visualize the words used more explicitly by each indiv
 Rather than using graphs to represent these results, we rely on our own intuition to ensure they make sense, taking into account we were able to achieve an accuracy score of 93.1%. The intuition is to make sure our model is differentiating in a way that is useful to us. A more in depth analysis of these visualizations can be found in the analysis itself and relevant blog posts.
 
 ## Abstraction
-The approach above is illustrated for several pairs of presidents explicitly, but we don't want to have to use a gridsearch and train new neural networks everytime we want to compare two individuals. Instead, we would like to have one model that can analyze the results quickly. In order to do that, we select presidential pairs at random and select one set of hyperparameters at random, and iterate through this process 500 times. All results are saved to a dataframe for further analysis.
+The approach above is illustrated for several pairs of presidents explicitly, but we don't want to have to use a gridsearch and train new neural networks everytime we want to compare two individuals. Instead, we would like to have one model that can analyze the results quickly. In order to do that, we select presidential pairs at random and select one set of hyperparameters at random, and iterate through this process 500 times. All results are saved to a dataframe for further analysis and determine that factors which impact model accuracy most.
 
+As can be seen here, there is great disparity in sample sizes among presidents. What's more, the sample size has the biggest impact on model accuracy, and larger sample sizes make it more likely that deep learning models outperform traditional machine learning models.
+
+<img src='/readme_images/speech_counts.png'>
+<img src='/readme_images/speech_counts_accuracy.png'>
+
+In addition, it was observed that RNN's significantly outperformed CNN's, and that Long-Stort Term Memory (LSTM) neurons slightly outperformed Gated Recurrent Units (GRUs). 
+
+<img src='/readme_images/rnn_cnn_compare.png'>
+
+These are only initial observations, but they begin to paint a picture for a way forward.
+
+## Next Steps
+The ability to correctly categorize passages from presidential speeches is merely a starting point for something larger. From a prototypical standpoint, we would like an AI that can quickly discern the differences and similarities between any two individuals, and this project presents a way forward. There is a plethora of options to pursue, but a few will be listed here:
+
+1. Generate synthetic data for training to help overcome the problem of sample size.
+2. Adapt model to compare 3+ presidents at a time. 
+3. Apply machine learning analyses to random selection results to find best neural network hyperparameters.
+4. Experiment with different network architectures.
+
+With so many options for pursuing the analysis further, it will require a team of dedicated individuals to achieve the desired results. The ultimate objective here was to present an idea rather than concrete conclusions. However, the analysis itself did seem to warrant a proper conclusion by answering the question: "What do all presidents throughout history have in common?" To answer that, one last word cloud was created, representing common errors in all randomly generated samples. Interpretation of the cloud is left to you:
+
+<img src='readme_images/flag_cloud.png'>
